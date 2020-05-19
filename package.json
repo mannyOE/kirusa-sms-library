@@ -1,0 +1,30 @@
+{
+  "name": "kirusa-sms",
+  "version": "1.0.0",
+  "description": "a node package to send sms messages using the kirusa api",
+  "main": "index.js",
+  "scripts": {
+    "test": "test",
+    "dev": "nodemon"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mannyOE/kirusa-sms.git"
+  },
+  "keywords": [
+    "kirusa",
+    "sms",
+    "nodejs"
+  ],
+  "author": "ahman emmanuel",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mannyOE/kirusa-sms/issues"
+  },
+  "homepage": "https://github.com/mannyOE/kirusa-sms#readme",
+  "dependencies": {
+    "awesome-phonenumber": "^2.32.0",
+    "request": "^2.88.2",
+    "request-promise": "^4.2.5"
+  }
+}
