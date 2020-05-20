@@ -1,6 +1,6 @@
 {
   "name": "kirusa-sms",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "a node package to send sms messages using the kirusa api",
   "main": "index.js",
   "scripts": {
