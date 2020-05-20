@@ -5,7 +5,7 @@ class Kirusa {
     kirusa_api_key,
     kirusa_account_id,
     kirusa_sender_number,
-    country_phone_code,
+    country_phone_code="+234",
     mask = 'Nester'
   ) {
     if (!kirusa_api_key) {
@@ -35,7 +35,7 @@ Kirusa.prototype.format_numbers = function (phone_numbers = []) {
   var valid = [],
     invalid = []
   for (let item of phone_numbers) {
-    let pn = new Phone_Number(item)
+    let pn = new Phone_Number(item, this.country_phone_code)
     if (pn.isValid()) {
       valid.push(pn.getNumber('e164'))
     } else {
@@ -44,6 +44,17 @@ Kirusa.prototype.format_numbers = function (phone_numbers = []) {
   }
   return { valid, invalid }
 }
+
+const generateID = function async(len = 10) {
+  var pwdChars = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+  var randId = Array(len)
+    .fill(pwdChars)
+    .map(function(x) {
+      return x[Math.floor(Math.random() * x.length)];
+    })
+    .join('');
+  return randId;
+};
 
 Kirusa.prototype.send_single = async function (message, phone_number) {
   if (!message || typeof message !== 'string') {
@@ -60,7 +71,7 @@ Kirusa.prototype.send_single = async function (message, phone_number) {
     var options = {
       uri: `https://konnect.kirusa.com/api/v1/Accounts/${this.ACCOUNT_ID}/Messages`,
       body: {
-        id: 'A10579090909090',
+        id: generateID(),
         to: format.valid,
         body: message,
         sender_mask: this.mask,
@@ -99,7 +110,7 @@ Kirusa.prototype.send_multiple = function (message, phone_numbers) {
             body: message,
             sender_mask: this.mask,
             from: this.NUMBER,
-            id: this.ACCOUNT_ID,
+            id: generateID(),
           },
           headers: {
             Authorization: this.API_KEY,
