@@ -23,16 +23,17 @@ var kirusa = new Kirusa(
 
 Every instance of Kirusa can support only one country code.
 
-
-| paramter | Description | Required | Default |
-| --- | --- | --- | --- |
-| kirusa_api_key | the api key from your kirusa account | true | - |
-| kirusa_account_id | your account id | true | - |
-| kirusa_sender_number | your kirusa registered sender phone number (short or long number) | true | - |
-| country_phone_code | country code of the valid phone numbers you wish to send to | true | +234 |
-| mask | your account sender mask | false | - |
-
 ```
+
+## Properties
+
+| Paramter             | Description                                                       | Required | Default |
+| -------------------- | ----------------------------------------------------------------- | -------- | ------- |
+| kirusa_api_key       | the api key from your kirusa account                              | true     | -       |
+| kirusa_account_id    | your account id                                                   | true     | -       |
+| kirusa_sender_number | your kirusa registered sender phone number (short or long number) | true     | -       |
+| country_phone_code   | country code of the valid phone numbers you wish to send to       | true     | +234    |
+| mask                 | your account sender mask                                          | false    | -       |
 
 ## Format your phone numbers
 
